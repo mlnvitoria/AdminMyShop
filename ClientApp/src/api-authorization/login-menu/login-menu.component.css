@@ -1,0 +1,19 @@
+#authenticated, #unauthenticated {
+  position: absolute;
+  right: 15px;
+  top: 22px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+#unauthenticated {
+  top: 10px;
+}
+  #unauthenticated .mat-list {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding-top: 0;
+  }
+  #unauthenticated .mat-list-item {
+    color: #fff;
+  }

@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Hosting
+@using Microsoft.AspNetCore.Mvc.ViewEngines
+@inject IWebHostEnvironment Environment
+@inject ICompositeViewEngine Engine
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Admin MyShop</title>
+    <link rel="stylesheet" href="~/Identity/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Identity/css/site.css" />
+</head>
+<body>
+    <div class="container-fluid" style="height: 85vh">
+        <main role="main" class="pb-3 container-fluid d-flex h-100">
+            <div class="row justify-content-center align-self-center w-100">
+                <div class="col-md-10 col-lg-7 col-xl-6 mx-auto">
+                    <div class="row border border-primary rounded">
+                        <div class="col-md-8 order-md-1 order-sm-2 py-4 px-5">
+                            <section>
+                                @RenderBody()
+                            </section>
+                        </div>
+                        <div class="col-md-4 order-md-2 order-sm-1 justify-content-center bg-primary">
+                            <div class="d-flex justify-content-end h-100 py-4 px-5">
+                                <h4 class="text-right text-white align-self-center">@ViewData["Title"]</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="footer text-muted">
+        <p class="text-center">
+            &copy; 2021 - Admin MyShop
+        </p>
+    </footer>
+    <script src="~/Identity/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Identity/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Identity/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

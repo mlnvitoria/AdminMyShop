@@ -7,10 +7,15 @@ import { RouterModule } from '@angular/router';
 import { ApplicationPaths } from './api-authorization.constants';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
+    MatMenuModule,
+    MatListModule,
     RouterModule.forChild(
       [
         { path: ApplicationPaths.Register, component: LoginComponent },

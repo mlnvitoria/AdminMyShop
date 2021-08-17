@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginMenuComponent } from './login-menu.component';
+import { MatListItem } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
 
 describe('LoginMenuComponent', () => {
   let component: LoginMenuComponent;
@@ -8,7 +10,11 @@ describe('LoginMenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginMenuComponent ]
+      declarations: [LoginMenuComponent],
+      imports: [
+        MatListItem,
+        MatMenuModule,
+      ]
     })
     .compileComponents();
   }));

@@ -1,0 +1,35 @@
+﻿:root {
+    --primary: #673ab7;
+}
+
+
+a {
+    color: var(--primary);
+}
+    a:hover {
+        color: var(--primary);
+    }
+
+code {
+    color: #e01a76;
+}
+
+.btn-primary,
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: var(--primary);
+    border-color: #5c34a3;
+}
+
+.bg-primary {
+    background-color: var(--primary)!important;
+    color: #fff;
+}
+
+.border-primary {
+    border-color: var(--primary)!important;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+}

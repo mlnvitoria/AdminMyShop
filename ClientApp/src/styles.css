@@ -1,8 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+:root {
+  --primary: #673ab7;
+}
+
 a {
-  color: #0366d6;
+  color: #673ab7;
 }
 
 code {
@@ -11,6 +15,9 @@ code {
 
 .btn-primary {
   color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+  background-color: #673ab7;
+  border-color: #5c34a3;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
