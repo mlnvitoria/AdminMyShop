@@ -1,31 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
-
-import { ProductService, Product } from '../product.service';
+import { Component, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Product } from '../product.service';
 
 @Component({
   selector: 'product-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent implements OnInit {
-  product: Product;
-  @Input() id?: number;
+export class ProductDetailsComponent {
+  private product: Product;
 
-  constructor(private productService: ProductService) { }
-
-  get(id: number): void {
-    this.productService.getProduct(id).subscribe(product => this.product = product);
+  constructor(
+    public dialogRef: MatDialogRef<ProductDetailsComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Product)
+  {
+    this.product = data;
   }
-
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.productService.addProduct({ Name: name, } as Product);
-  }
-
-  ngOnInit() {
-    this.get(this.id);
-  }
-
 }

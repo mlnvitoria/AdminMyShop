@@ -1,0 +1,15 @@
+table th {
+    min-width: 6em;
+}
+table td {
+    text-align: right;
+}
+
+p#description {
+    font-weight: bold;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+div#description-value {
+    margin-bottom: 2em;
+}

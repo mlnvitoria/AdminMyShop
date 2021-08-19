@@ -1,1 +1,24 @@
-<p>details works!</p>
+<h4 mat-dialog-title>Product {{product.name}}</h4>
+<mat-divider></mat-divider>
+<div mat-dialog-content class="mt-4">
+  <table>
+    <tr>
+      <th>ID</th>
+      <td>{{product.id}}</td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>$ {{product.id.toFixed(2)}}</td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td>{{product.quantity}}</td>
+    </tr>
+  </table>
+
+  <p id="description">Description</p>
+  <div id="description-value">{{product.description}}</div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="" class="btn btn-primary">Ok</button>
+</div>
