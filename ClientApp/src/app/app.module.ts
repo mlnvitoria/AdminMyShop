@@ -14,15 +14,15 @@ import { MatNavigationComponent } from './mat-navigation/mat-navigation.componen
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule, MatDividerModule, MatIconModule } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MatNavigationComponent
+    MatNavigationComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,13 +31,26 @@ import { MatMenuModule } from '@angular/material/menu';
     FormsModule,
     ApiAuthorizationModule,
     BrowserAnimationsModule,
+
     LayoutModule,
-    MatToolbarModule,
     MatButtonModule,
-    MatSidenavModule,
+    MatDialogModule,
+    MatDividerModule,
     MatIconModule,
     MatListModule,
     MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
+  ],
+  exports: [
+    MatButtonModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatIconModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatToolbarModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
