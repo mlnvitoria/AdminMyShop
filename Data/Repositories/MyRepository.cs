@@ -1,6 +1,7 @@
 ﻿using AdminMyShop.Data.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace AdminMyShop.Data.Repositories
@@ -15,6 +16,11 @@ namespace AdminMyShop.Data.Repositories
         {
             Context = context;
             DbSet = Context.Set<TEntity>();
+        }
+
+        public virtual async Task<IEnumerable<TEntity>> Get()
+        {
+            return await DbSet.AsNoTracking().ToListAsync();
         }
 
         public async Task<TEntity> GetById(int id)
@@ -40,7 +46,7 @@ namespace AdminMyShop.Data.Repositories
 
         public async void DeleteById(int id)
         {
-            var entity = await DbSet.FindAsync(id);
+            var entity = await DbSet.FirstAsync(e => e.Id == id);
             if (entity == null)
             {
                 throw new KeyNotFoundException();

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace AdminMyShop.Controllers
@@ -23,6 +24,20 @@ namespace AdminMyShop.Controllers
 
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [HttpGet("")]
+        public async Task<ActionResult<IEnumerable<TEntity>>> GetAll()
+        {
+            var list = await Repository.Get();
+            if (list == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(list);
+        }
+
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
         [HttpGet("{id}")]
         public async Task<ActionResult<TEntity>> GetById(int id)
         {
@@ -32,7 +47,7 @@ namespace AdminMyShop.Controllers
                 return NotFound();
             }
 
-            return entity;
+            return Ok(entity);
         }
 
         // POST: api/[controller]

@@ -8,6 +8,8 @@ using AdminMyShop.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using AdminMyShop.Data.Repositories;
+using AdminMyShop.Data.Interfaces;
 
 namespace AdminMyShop
 {
@@ -26,7 +28,7 @@ namespace AdminMyShop
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-
+            
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -37,8 +39,12 @@ namespace AdminMyShop
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddScoped<IRepository<Product>, ProductRepository>();
+
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
