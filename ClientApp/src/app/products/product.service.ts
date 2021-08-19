@@ -32,16 +32,16 @@ export class ProductService {
   }
 
   public updateProduct(product: Product): Observable<any> {
-    const url = `${this.productsUrl}/${product.Id}`;
-    return this.http.put(this.productsUrl, product, this.httpOptions).pipe(
-      tap(_ => console.log(`updated product id=${product.Id}`)),
+    const url = `${this.productsUrl}/${product.id}`;
+    return this.http.put(url, product, this.httpOptions).pipe(
+      tap(_ => console.log(`updated product id=${product.id}`)),
       catchError(this.handleError<any>('updateProduct'))
     );
   }
 
   public addProduct(product: Product): Observable<Product> {
     return this.http.post<Product>(this.productsUrl, product, this.httpOptions).pipe(
-      tap((newProduct: Product) => console.log(`added product w/ id=${newProduct.Id}`)),
+      tap((newProduct: Product) => console.log(`added product w/ id=${newProduct.id}`)),
       catchError(this.handleError<Product>('addProduct'))
     );
   }
@@ -70,9 +70,9 @@ export class ProductService {
 }
 
 export interface Product {
-  Id: number,
-  Name: string,
-  Description: string,
-  Price: number,
-  Quantity: number
+  id: number,
+  name: string,
+  description: string,
+  price: number,
+  quantity: number
 };
