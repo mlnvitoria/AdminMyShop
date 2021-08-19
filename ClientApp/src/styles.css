@@ -3,21 +3,48 @@
 /* Provide sufficient contrast against white background */
 :root {
   --primary: #673ab7;
+  --primary-border: #5c34a3;
+  --primary-hover: #603ab7;
 }
 
+
 a {
-  color: #673ab7;
+  color: var(--primary);
 }
+  a:hover {
+    color: var(--primary);
+  }
 
 code {
   color: #e01a76;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-primary.focus, .btn-primary:focus,
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show > .btn-primary.dropdown-toggle {
   color: #fff;
-  background-color: #673ab7;
-  border-color: #5c34a3;
+  background-color: var(--primary);
+  border-color: var(--primary-border);
 }
+  .btn-primary:hover,
+  .btn-primary:not(:disabled):not(.disabled).active:hover,
+  .btn-primary:not(:disabled):not(.disabled):active:hover,
+  .show > .btn-primary.dropdown-toggle:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-border);
+  }
+  .btn-primary.focus,
+  .btn-primary:focus,
+  .btn-primary.focus:hover,
+  .btn-primary:not(:disabled):not(.disabled).active:focus,
+  .btn-primary:not(:disabled):not(.disabled):active:focus,
+  .show > .btn-primary.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(103 58 183 / 50%);
+  }
 
-html, body { height: 100%; }
+  html, body {
+    height: 100%;
+  }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

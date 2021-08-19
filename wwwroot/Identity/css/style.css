@@ -1,5 +1,7 @@
 ﻿:root {
     --primary: #673ab7;
+    --primary-border: #5c34a3;
+    --primary-hover: #603ab7;
 }
 
 
@@ -11,14 +13,18 @@ a {
     }
 
 code {
-    color: #e01a76;
+    color: #808080;
 }
 
 .btn-primary,
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: #fff;
     background-color: var(--primary);
-    border-color: #5c34a3;
+    border-color: var(--primary-border);
+}
+.btn-primary:hover,
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link:hover {
+    background-color: var(--primary-hover);
 }
 
 .bg-primary {
